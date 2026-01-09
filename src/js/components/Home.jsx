@@ -1,36 +1,58 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const Home = () => {
 
-	const [toDoList, setToDoList] = useState([])
-	const [input, setInput] = useState("hola")
-	function handleSubmit(e) {
+	const [input, setInput] = useState("")
+	const [box, setBox] = useState([])
+
+	const ejecutar = (e) => {
+
 		e.preventDefault()
 
-
-		const newTask = {
-
+		let nuevaTarea = {
 			label: input,
 			is_done: false
 		}
-		setToDoList([...toDoList, newTask]);
-		setInputValue(""); //
+
+		setBox([...box, nuevaTarea])
+		setInput("")
+
 	}
 
+	const borrar = (i) => {
+
+		const nuevoArray = box.filter((_, index) => index !== i);
+        setBox(nuevoArray)
+	}
+
+
 	return (
-		<div className="text-center">
+		<div className="">
+			<h1>
 
-			<h1 className="titulo">to do list</h1>
-			<form className="form" onSubmit={handleSubmit} >
-				<input type="text" value={input} onChange={(e) => { setInput(e.target.value) }
-				} />
+				todos
+			</h1>
+			<form onSubmit={ejecutar}>
+				<input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
 			</form>
-			<div className="renderizado">
+			<div>
+				<ul>
+					{box.map((tarea, index) => {
 
-
+						return (
+							<li key={index}>
+								{tarea.label}
+								<span onClick={()=>borrar (index)} >X</span>
+							</li>
+						)
+					})}
+				</ul>
 			</div>
 		</div>
-	);
-};
 
-export default Home;
+	)
+
+
+}
+
+export default Home

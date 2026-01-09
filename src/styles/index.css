@@ -1,11 +1,91 @@
-/* 
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-*/
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+div {
+    background: #ffffff;
+    width: 350px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+/* Input */
+form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+form input:focus {
+    border-color: #667eea;
+}
+
+/* Lista */
+ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+/* Tarea */
+li {
+    background: #f7f7f7;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+li:hover {
+    background: #eeeeee;
+}
+
+/* Texto de la tarea */
+li span:first-child {
+    flex-grow: 1;
+}
+
+/* Botón borrar */
+li span {
+    cursor: pointer;
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+li span:hover {
+    color: #e60000;
+    transform: scale(1.2);
+}
